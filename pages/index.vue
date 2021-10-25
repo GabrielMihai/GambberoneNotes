@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>ciao</h1>
+    <note></note>
   </div>
 </template>
 
 <script>
+import Note from "../components/Note";
 export default {
+  components: {Note},
   data() {
     return {}
   }

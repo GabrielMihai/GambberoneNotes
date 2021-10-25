@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full bg-gray-600">
     <g-drawer/>
-    <div class="bg-gray-600 h-screen w-screen box-border pl-16 overflow-hidden">
+    <div class="bg-gray-600 h-screen w-screen box-border px-16 py-4 overflow-hidden">
       <Nuxt/>
     </div>
   </div>

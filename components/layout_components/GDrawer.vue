@@ -37,10 +37,10 @@
         </div>
       </div>
       <div
-        :class="`mt-10 ${isOpen ? 'flex' : 'hidden'} sm:flex  uppercase tracking-wider px-2 py-1 items-center justify-center cursor-pointer rounded-md hover:${hoveredColor} hover:bg-opacity-30 hover:shadow-inset`"
+        :class="`mt-10 ${isOpen ? 'flex' : 'hidden'} sm:flex uppercase tracking-wider px-2 py-1 items-center justify-center cursor-pointer rounded-md hover:${getHoveredColor(color)} hover:bg-opacity-30 hover:shadow-inset`"
         @click="isOpen = !isOpen">
-        <fa :icon="['fas', 'chevron-left']"
-            :class="`${isOpen ? 'mr-3 rotate-180' : ''} transition-all duration-500 text-xl transform`"/>
+        <fa :icon="['fas', 'chevron-right']"
+            :class="`${isOpen ? 'mr-3 -rotate-180' : ''} transition-all duration-500 text-xl transform`"/>
         <div
           :class="`${isOpen ? 'w-24' :'w-0'}  overflow-hidden overflow-ellipsis font-semibold transition-width duration-500`">
           Collapse
@@ -56,8 +56,11 @@
 </template>
 
 <script>
+import {ColorMixin} from "../../mixins/ColorMixin";
+
 export default {
   name: "GDrawer",
+  mixins: [ColorMixin],
   props: {
     color: {default: 'bg-yellow-500', type: String}
   },
@@ -65,13 +68,6 @@ export default {
     return {
       isOpen: false,
       actionClicked: false
-    }
-  },
-  computed: {
-    hoveredColor() {
-      const colorStringArray = this.color.split("-");
-      const colorAmount = parseInt(colorStringArray[2]);
-      return `${colorStringArray[0]}-${colorStringArray[1]}-${colorAmount + 200}`
     }
   },
   methods: {
