@@ -1,6 +1,6 @@
 <template>
   <div>
-    <note></note>
+    <note :note="{}"></note>
   </div>
 </template>
 

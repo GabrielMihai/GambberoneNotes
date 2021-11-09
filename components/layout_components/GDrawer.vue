@@ -7,7 +7,7 @@
         <fa :icon="['fas','user-circle']" :class="`${isOpen ? 'text-7xl' :'text-3xl'} transition-text duration-500`"/>
       </div>
       <div
-        :class="`my-3 ${isOpen ? 'flex' : 'hidden'} sm:flex uppercase tracking-wider px-2 py-1 transition-all duration-500 items-center justify-center cursor-pointer rounded-md hover:${hoveredColor} hover:bg-opacity-30 hover:shadow-inset`">
+        :class="`my-3 ${isOpen ? 'flex' : 'hidden'} sm:flex uppercase tracking-wider px-2 py-1 transition-all duration-500 items-center justify-center cursor-pointer rounded-md hover:${getHoveredColor(color)} hover:bg-opacity-30 hover:shadow-inset`">
         <fa :icon="['fas', 'sticky-note']"
             :class="`${isOpen ? 'mr-3' : ''} transition-margin-right duration-500 text-xl`"/>
         <div
@@ -27,7 +27,7 @@
             </div>-->
       <div class="flex-grow"/>
       <div
-        :class="`my-auto ${isOpen ? 'flex' : 'hidden'} sm:flex uppercase tracking-wider px-2 py-1 items-center justify-center cursor-pointer rounded-md hover:${hoveredColor} hover:bg-opacity-30 hover:shadow-inset`"
+        :class="`my-auto ${isOpen ? 'flex' : 'hidden'} sm:flex uppercase tracking-wider px-2 py-1 items-center justify-center cursor-pointer rounded-md hover:${getHoveredColor(color)} hover:bg-opacity-30 hover:shadow-inset`"
         @click="goTo('settings')">
         <fa :icon="['fas', 'user-cog']"
             :class="`${isOpen ? 'mr-3' : ''} transition-margin-right duration-500 text-xl`"/>

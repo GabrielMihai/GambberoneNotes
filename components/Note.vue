@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div :class="`${color} h-1/6 w-96 py-1 px-2 rounded-lg`">
-      <span class="font-semibold text-xl tracking-wide text-gray-900 ml-2">
+    <div :class="`${color} h-1/6 w-96 py-1 px-1 rounded-lg`">
+      <span class="font-semibold text-xl tracking-wider text-gray-700 ml-3">
         Title
       </span>
       <div :class="`w-full h-px ${getDifferentColorAmount(color, 700)} my-1`"/>
-      <div>
-        <g-checkbox/>
+      <div class="pl-2 mt-2">
+        <g-checkbox v-model="checked" :color="color" label="Checkbox"/>
+        <g-input/>
       </div>
     </div>
   </div>
@@ -15,10 +16,11 @@
 <script>
 import {ColorMixin} from "../mixins/ColorMixin";
 import GCheckbox from "./form_components/GCheckbox";
+import GInput from "./form_components/GInput";
 
 export default {
   name: 'Note',
-  components: {GCheckbox},
+  components: {GInput, GCheckbox},
   mixins: [ColorMixin],
   props: {
     color: {required: false, default: 'bg-red-500', type: String},
@@ -26,7 +28,8 @@ export default {
   },
   data() {
     return {
-      backgroundColors: ['bg-red-500', 'bg-green-500']
+      backgroundColors: ['bg-red-500', 'bg-green-500'],
+      checked: false
     }
   }
 }
